@@ -2092,6 +2092,7 @@ find_unique_patterns = function(x) {
 #' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
+#'@export
 checkident.2 = function(x, xcap, zmods) {
   # set up the unique patterns within x and initialise
   zu = find_unique_patterns(x)
