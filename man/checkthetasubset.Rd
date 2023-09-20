@@ -24,3 +24,9 @@ This routine leaves out a particular set of parameters corresponding to the two-
 For the resulting model, it constructs the linear programming
 problem to check whether the extended maximum likelihood estimates of the parameters exists. It is called internally by \code{checkallmodels}.
 }
+\references{
+Chan, L., Silverman, B. W., and Vincent, K. (2021).
+ Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.
+\emph{Journal of American Statistcal Association}, \strong{116(535)}, 1297-1306,
+Available from \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748}.
+}

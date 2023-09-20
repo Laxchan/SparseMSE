@@ -2,7 +2,7 @@
 % Please edit documentation in R/ktop_routines.R
 \name{find_bic_rank_matrix}
 \alias{find_bic_rank_matrix}
-\title{Find BIC rank matrix up to some point for a given data set}
+\title{Find BIC rank matrix up to a specified number of bic ranks for a given data set}
 \usage{
 find_bic_rank_matrix(zsortbic, nbicranks = 5)
 }
@@ -15,7 +15,7 @@ find_bic_rank_matrix(zsortbic, nbicranks = 5)
 A bic rank matrix encoding how many steps the models considered need to get to the optimal one.
 }
 \description{
-Find BIC rank matrix up to some point for a given data set
+Find BIC rank matrix up to a specified number of bic ranks for a given data set
 }
 \examples{
 data(Korea)
@@ -23,6 +23,6 @@ zsortbic=sortmodelsbic(Korea, checkexist=T)
 find_bic_rank_matrix(zsortbic, nbicranks=5)
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

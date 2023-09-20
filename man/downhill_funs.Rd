@@ -18,7 +18,7 @@ downhill_funs(
 
 \item{maxorder}{Maximum order of models to be included}
 
-\item{checkid}{if TRUE, do the Fienburg-Renauldo test}
+\item{checkid}{if TRUE, do the Fienburg-Renaldo test}
 
 \item{verbose}{if TRUE, return the list of extra output from \code{downhill_fit}}
 
@@ -47,6 +47,6 @@ downhill_funs(xdata)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

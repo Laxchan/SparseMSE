@@ -32,6 +32,6 @@ jackknifecal(z,checkexist=T)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

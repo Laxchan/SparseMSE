@@ -48,7 +48,7 @@
 #'
 #' Victims related to human trafficking in the Netherlands
 #'
-#'These data are collected into six lists. Full details are given in Table 2. of Silverman (2020).
+#'These data are collected into six lists. Full details are given in Table 2 of Silverman (2020).
 #'
 #'@references Silverman, B. W. (2020). Model fitting in Multiple Systems Analysis for the quantification of Modern Slavery: Classical and Bayesian approaches
 #'\emph{Journal of Royal Statistical Society: Series A}, \strong{183(3)}, 691-736, Available

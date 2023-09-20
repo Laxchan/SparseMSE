@@ -43,7 +43,7 @@
 #' data(NewOrl)
 #' buildmodel(NewOrl, mX=NULL)
 #' #Build a matrix that contains all two-list effects
-#' m=dim(Artificial_3)[2]-1
+#' m=dim(NewOrl)[2]-1
 #' mX = t(expand.grid(1:m, 1:m)); mX = mX[ , mX[1,]<mX[2,]]
 #' # With one two-list effect
 #' buildmodel(NewOrl, mX=mX[,1])
@@ -119,7 +119,7 @@ buildmodel <- function(zdat, mX) {
 #'
 #' @examples
 #' data(NewOrl)
-#' zdat<-tidylists(NewOrl,includezerocounts=TRUE)
+#' tidylists(NewOrl,includezerocounts=TRUE)
 #'
 #'@export
 tidylists <- function(zdat, includezerocounts = FALSE) {
@@ -819,8 +819,13 @@ checkallmodels <-function (zdat, nreport= 1024) {
 #'
 #'@return A list of all subsets for which the value is \code{TRUE}
 #'
-#'@export
+#'@references
+#'Chan, L., Silverman, B. W., and Vincent, K. (2021).
+#'  Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.
+#' \emph{Journal of American Statistcal Association}, \strong{116(535)}, 1297-1306,
+#' Available from \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748}.
 #'
+#'@export
 subsetsearch <- function(n, checkfun, testnull = TRUE, ...) {
 
   #--- test the null set first
@@ -865,8 +870,13 @@ subsetsearch <- function(n, checkfun, testnull = TRUE, ...) {
 #' @return If the return result is \code{TRUE}, the linear program shows that the extended maximum likelihood estimate does not exist.
 #' If the return result is \code{FALSE}, the estimate exists.
 #'
+#' @references
+#'Chan, L., Silverman, B. W., and Vincent, K. (2021).
+#'  Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.
+#' \emph{Journal of American Statistcal Association}, \strong{116(535)}, 1297-1306,
+#' Available from \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748}.
+#'
 #'@export
-
 checkthetasubset <- function(zset, amat, tvec, nlists) {
 
   #---construct the subsetted a matrix and t vector
@@ -898,6 +908,19 @@ checkthetasubset <- function(zset, amat, tvec, nlists) {
 #' @return A data matrix that is ordered first by the number of 1s in the capture history
 #' and then lexicographically by columns.
 #'
+#' @references
+#'Chan, L., Silverman, B. W., and Vincent, K. (2021).
+#'  Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.
+#' \emph{Journal of American Statistcal Association}, \strong{116(535)}, 1297-1306,
+#' Available from \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748}.
+#'
+#'
+#' @examples
+#' #UK 5 list data
+#' data(UKdat_5)
+#' # Obtain matrix with capture histories only
+#' UKdat_5_cap <- UKdat_5[, 1:dim(UKdat_5)[2]-1]
+#' ordercaptures(UKdat_5_cap)
 #
 #' @export
 
@@ -990,6 +1013,10 @@ count_triples <- function(zdat) {
 #'
 #' DiCiccio, T. J. and Efron, B. (1996). Bootstrap Confidence Intervals. \emph{Statistical Science}, \strong{40(3)}, 189-228.
 #'
+#' @examples
+#' data(Korea)
+#' zdat=Korea
+#' estimatepopulation(zdat,nboot=10)
 #'
 #' @export
 #'
@@ -1137,7 +1164,9 @@ bcaconfvalues<-function(bootreps, popest, ahat, alpha=c(0.025, 0.05, 0.1, 0.16, 
 #'
 #'@importFrom stats pnorm quantile rbinom rmultinom
 #'
-#'
+#'@examples
+#'zdat=UKdat_5
+#'BICandbootstrapsim(zdat,nsims=1000, nboot=100, pthresh=0.02, iseed=1234, noninformativelist=T)
 #'@export
 
 BICandbootstrapsim <- function(zdat, nsims=100,nboot=100,pthresh=0.02, iseed=1234, alpha=c(0.025, 0.05, 0.1, 0.16, 0.5, 0.84, 0.9, 0.95, 0.975),noninformativelist=F,verbose=F, ...){
@@ -1203,6 +1232,12 @@ BICandbootstrapsim <- function(zdat, nsims=100,nboot=100,pthresh=0.02, iseed=123
 #' @return data matrix that contains no duplicate lists, no lists with no data, and no lists that contain all the observed data.
 #' If all lists are removed, the total count is returned.
 #'
+#'@references
+#'Chan, L., Silverman, B. W., and Vincent, K. (2021).
+#'  Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.
+#' \emph{Journal of American Statistcal Association}, \strong{116(535)}, 1297-1306,
+#' Available from \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748}.
+#'
 #' @export
 removenoninformativelists<-function(zdat){
   zdat=as.matrix(zdat)
@@ -1229,8 +1264,8 @@ removenoninformativelists<-function(zdat){
 #' @param nlists The number of lists
 #' @return A logical vector of length \code{nlists} giving presence or absence in the capture history
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1251,8 +1286,8 @@ decode_capture = function(k, nlists) {
 #' @param omitk Determine whether the original capture history is included as a descendant of itself. If \code{omitk=T} it is not.
 #' @return a vector giving the encoded versions of the descendants
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1282,8 +1317,8 @@ descendants = function(k,nlists, omitk = FALSE) {
 #'
 #' @return a vector giving the encoded versions of the ancestors
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1307,12 +1342,12 @@ ancestors = function(k,nlists=10) {
 #'
 #' Given any encoded capture history and the number of lists, find the encoded capture histories which are obtained by leaving out just one list in turn
 #'
-#' @param k An encoded capture history
+#' @param k An encoded capture history that corresponds to the row number of the capture history data set
 #' @param nlists The total number of lists
 #' @return a vector giving the encoded versions of the parents
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1327,14 +1362,14 @@ parent_captures = function(k, nlists=10) {
 }
 #' Find the "children" of a given capture history
 #'
-#' Given any encoded capture history and the number of lists, find the encoded capture histories which are obtained by adding one more list in turn
+#' Given any encoded capture history that corresponds to the row number of the capture history data set and the number of lists, find the encoded capture histories which are obtained by adding one more list in turn
 #'
-#' @param k An encoded capture history
+#' @param k An encoded capture history that corresponds to the row number of the capture history data set
 #' @param nlists The total number of lists
 #' @return a vector giving the encoded versions of the children
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1358,7 +1393,7 @@ child_captures = function(k, nlists) {
 #' in other words if \eqn{j} is an ancestor of \eqn{i}.
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1398,7 +1433,7 @@ make_master_design = function(nlists) {
 #'  \item{masterdesign}{The inclusion matrix as constructed by \code{\link{make_master_design}}}}
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #'@examples
@@ -1431,15 +1466,15 @@ ingest_data = function(xdat)  {
 }
 #' Find the vector of captures corresponding to a given hierarchical model
 #'
-#' Given a hierarchical model, find the vector of all the corrsponding encoded captures
+#' Given a hierarchical model, find the vector of all the corresponding encoded captures
 #'
 #' @param modelstr A given hierarchical model
 #' @param findancestors If T then find all the captures.  If F then just return the encoded defining histories of the hierarchy
 #'
-#' @return The encoded capture histories
+#' @return The encoded capture histories that corresponds to the row number of the capture history data set
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #'@examples
@@ -1462,11 +1497,11 @@ convert_from_hierarchy = function(modelstr, findancestors=T) {
 }
 #' Encode capture history
 #'
-#' Given a 0/1 capture history, encode it as a number
+#' Given a 0/1 capture history, encode it as number that corresponds to the row number of the capture history data set
 #'
 #' @param z The capture history to be encoded, as a logical vector or a vector of 0s and 1s
 #'
-#' @return The capture history encoded as a number
+#' @return The capture history encoded as a number that corresponds to the row number of the capture history data set
 #'
 #' @examples
 #' encode_capture(c(1,0,0,0,0))
@@ -1498,7 +1533,7 @@ encode_capture = function(z) {
 #'
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #'@examples
@@ -1572,8 +1607,8 @@ ntopBCa = function(z,alpha=c(0.025, 0.05, 0.1, 0.16,0.2, 0.5, 0.8, 0.84, 0.9, 0.
 #'
 #' @return the estimated acceleration factor
 #'
-#'#'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1582,7 +1617,7 @@ ntopBCa = function(z,alpha=c(0.025, 0.05, 0.1, 0.16,0.2, 0.5, 0.8, 0.84, 0.9, 0.
 #' z=jackknifecal(z, checkexist=T)
 #' nmods= dim(z$jackabund)[1]
 #' modscores = (1:nmods)
-#  modelorder= order(modscores)
+#' modelorder= order(modscores)
 #' bicktopahatcal(z,modelorder)
 #'
 #'
@@ -1702,7 +1737,7 @@ subsetmat <- function(z,
 #'@return the order of the model character string
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #'@examples
@@ -1729,8 +1764,8 @@ modelorder = function(x) {
 #' @return A list of models satisfying the given criteria
 #'
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1759,11 +1794,11 @@ gethiermodels=function(nlists, maxorder=nlists-1, modelvec=hiermodels){
 #'
 #'
 #' @param parset Either the hierarchical representation of the model, or the vector of the corresponding capture histories to the model.
-#' @param datlist The output of \code{ingest_data} on the data set
+#' @param datlist The output of \code{\link{ingest_data}} on the data set
 #' @return The value of the linear program. The parameter estimates within the extended ML framework exist if and only if this value is nonzero.
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' Fienberg, S. E. and Rinaldo, A. (2012). Maximum likelihood estimation in log-linear
@@ -1773,7 +1808,7 @@ gethiermodels=function(nlists, maxorder=nlists-1, modelvec=hiermodels){
 #' data(Korea)
 #' datlist = ingest_data(Korea)
 #' parset ="[0,0,1]"
-#' checkident.1(parest,dalist)
+#' checkident.1(parset,datlist)
 #'
 #' @export
 checkident.1= function(parset, datlist) {
@@ -1870,7 +1905,7 @@ sortmodelsbic <-
 #' @param checkid if T then \code{checkident.1} is called inside the routine
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -1932,8 +1967,12 @@ fit_hier_model= function(xdatin, hiermod, bicRcap=T, checkid=F) {
 #'@return neighbour hierarchical models
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#'
+#' @examples
+#' modelstr = "[12,23]"
+#' find_neighbour_hierarchies(modelstr)
 #'@export
 find_neighbour_hierarchies = function(modelstr, nlists=NA, keepmaineffects=T, maxorder=nlists-1){
   # First find models obtained by adding a capture history
@@ -1968,7 +2007,7 @@ find_neighbour_hierarchies = function(modelstr, nlists=NA, keepmaineffects=T, ma
 #' @return A hierarchical representation of the vector of encoded captures.
 #'
 #' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -2007,14 +2046,21 @@ convert_to_hierarchy = function(kcap, nlists) {
 #' will be preserved if a capture in the boundary is added to it. The routine is called internally by \code{find_neighbour_hierarchies}.
 #'
 #'
-#' @param kcap An encoded capture history
+#' @param kcap An encoded capture history that corresponds to the row number of the capture history data set
 #' @param nlists The total number of lists
 #'
 #' @return a vector giving the encoded versions of the descendants
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#'
+#' @examples
+#'modelstr = "[12,23]"
+#'nlists=4
+#'zhierroots = convert_from_hierarchy(modelstr, F)
+#'zhier = unique(ancestors(zhierroots, nlists))
+#'boundary_captures(zhier,nlists)
 #'
 #' @export
 boundary_captures = function(kcap, nlists) {
@@ -2047,14 +2093,14 @@ boundary_captures = function(kcap, nlists) {
 #' }}
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #'@examples
 #'data(Korea)
 #'z=sortmodelsbic(Korea)
 #'z=bootstrapcal(z)
-#'find_unique_patterns(z$replications)
+#'find_unique_patterns(z$bootreplications)
 #'
 #' @export
 find_unique_patterns = function(x) {
@@ -2089,8 +2135,15 @@ find_unique_patterns = function(x) {
 #'
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#'
+#' @examples
+#' data(Korea)
+#' z=sortmodelsbic(Korea)
+#' z=bootstrapcal(z)
+#' n2=dim(z$xdata)[2]
+#' checkident.2(z$bootreplications, z$xdata[,-n2], dimnames(z$res)[[1]])
 #'
 #'@export
 checkident.2 = function(x, xcap, zmods) {
@@ -2147,8 +2200,8 @@ checkident.2 = function(x, xcap, zmods) {
 #' If there are already components with these names they will be overwritten.
 #'
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #'@examples
@@ -2219,8 +2272,9 @@ bootstrapcal <- function(z,
 #'   \item{jackbic}{Jackknife BIC matrix}
 #'   \item{countsobserved}{Capture counts in the same order as the columns of \code{jackabund} and \code{jackbic}}
 #' }
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples

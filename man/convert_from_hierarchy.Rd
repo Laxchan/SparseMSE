@@ -12,10 +12,10 @@ convert_from_hierarchy(modelstr, findancestors = T)
 \item{findancestors}{If T then find all the captures.  If F then just return the encoded defining histories of the hierarchy}
 }
 \value{
-The encoded capture histories
+The encoded capture histories that corresponds to the row number of the capture history data set
 }
 \description{
-Given a hierarchical model, find the vector of all the corrsponding encoded captures
+Given a hierarchical model, find the vector of all the corresponding encoded captures
 }
 \examples{
 modelstr = "[12,23]"
@@ -25,6 +25,6 @@ convert_from_hierarchy(modelstr, findancestors=F)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

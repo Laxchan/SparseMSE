@@ -66,6 +66,10 @@ This routine carries out the simulation study as detailed in Section 3.4 of Chan
  If the original data set has low counts, so that there is a possibility of a simulated data set containing empty lists, then it
  may be advisable to use the option \code{noninformativelist=TRUE}.
 }
+\examples{
+zdat=UKdat_5
+BICandbootstrapsim(zdat,nsims=100, nboot=100, pthresh=0.02, iseed=1234)
+}
 \references{
 Chan, L., Silverman, B. W., and Vincent, K. (2021).
  Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.

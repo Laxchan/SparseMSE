@@ -45,7 +45,7 @@ For multiple systems estimation model corresponding to a specified set of two-li
 data(NewOrl)
 buildmodel(NewOrl, mX=NULL)
 #Build a matrix that contains all two-list effects
-m=dim(Artificial_3)[2]-1
+m=dim(NewOrl)[2]-1
 mX = t(expand.grid(1:m, 1:m)); mX = mX[ , mX[1,]<mX[2,]]
 # With one two-list effect
 buildmodel(NewOrl, mX=mX[,1])

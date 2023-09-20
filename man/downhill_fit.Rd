@@ -44,9 +44,10 @@ data(Korea)
 xdata=Korea
 counts = xdata[,dim(xdata)[2]]
 desmat = xdata[,1:(dim(xdata)[2]-1)]
+downhill_fit(counts, desmat)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

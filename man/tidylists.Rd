@@ -27,6 +27,6 @@ these are all removed.
 }
 \examples{
 data(NewOrl)
-zdat<-tidylists(NewOrl,includezerocounts=TRUE)
+tidylists(NewOrl,includezerocounts=TRUE)
 
 }

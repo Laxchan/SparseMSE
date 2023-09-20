@@ -23,10 +23,10 @@ together with a vector of pointers back to that matrix.
 data(Korea)
 z=sortmodelsbic(Korea)
 z=bootstrapcal(z)
-find_unique_patterns(z$replications)
+find_unique_patterns(z$bootreplications)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

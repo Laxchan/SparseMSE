@@ -17,8 +17,9 @@
 #'   \item{hierarchies_considered}{hierarhical models considered}
 #'   \item{function_values}{Values of function}
 #'  }
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -26,6 +27,7 @@
 #' xdata=Korea
 #' counts = xdata[,dim(xdata)[2]]
 #' desmat = xdata[,1:(dim(xdata)[2]-1)]
+#' downhill_fit(counts, desmat)
 #'
 #'@export
 downhill_fit = function(counts, desmat, maxorder=dim(desmat)[2]-1, checkid=T, niter=20,verbose=F) {
@@ -86,8 +88,8 @@ downhill_fit = function(counts, desmat, maxorder=dim(desmat)[2]-1, checkid=T, ni
 #'
 #' @return Point estimates of total population sizes from each bootstrap sample.
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
@@ -121,13 +123,15 @@ downhill_bootstrapcal <- function(xdata, nboot = 1000, iseed = 1234,
 #'
 #'
 #'
-#' @references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
 #' data(Korea)
 #' downhill_jackknifecal(Korea)
+#'
+#' @export
 downhill_jackknifecal <- function(xdata,checkid = T, maxorder=dim(xdata)[2]-2) {
   xdata = tidylists(xdata, includezerocounts=F)
   n1= dim(xdata)[1]

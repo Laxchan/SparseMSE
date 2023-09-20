@@ -19,3 +19,16 @@ and then lexicographically by columns.
 Given a matrix with capture histories only, the routine orders the capture histories first by the number of
 1s in the capture history and then lexicographically by columns.
 }
+\examples{
+#UK 5 list data
+data(UKdat_5)
+# Obtain matrix with capture histories only
+UKdat_5_cap <- UKdat_5[, 1:dim(UKdat_5)[2]-1]
+ordercaptures(UKdat_5_cap)
+}
+\references{
+Chan, L., Silverman, B. W., and Vincent, K. (2021).
+ Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.
+\emph{Journal of American Statistcal Association}, \strong{116(535)}, 1297-1306,
+Available from \url{https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748}.
+}

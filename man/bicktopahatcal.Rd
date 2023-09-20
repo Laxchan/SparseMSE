@@ -13,10 +13,6 @@ bicktopahatcal(z, modelorder)
 }
 \value{
 the estimated acceleration factor
-
-#'@references
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
-Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }
 \description{
 Returns acceleration factors for each value of ntop for given modelorder
@@ -27,7 +23,12 @@ z=sortmodelsbic(Korea, checkexist=T)
 z=jackknifecal(z, checkexist=T)
 nmods= dim(z$jackabund)[1]
 modscores = (1:nmods)
+modelorder= order(modscores)
 bicktopahatcal(z,modelorder)
 
 
+}
+\references{
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

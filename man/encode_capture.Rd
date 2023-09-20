@@ -10,10 +10,10 @@ encode_capture(z)
 \item{z}{The capture history to be encoded, as a logical vector or a vector of 0s and 1s}
 }
 \value{
-The capture history encoded as a number
+The capture history encoded as a number that corresponds to the row number of the capture history data set
 }
 \description{
-Given a 0/1 capture history, encode it as a number
+Given a 0/1 capture history, encode it as number that corresponds to the row number of the capture history data set
 }
 \examples{
 encode_capture(c(1,0,0,0,0))

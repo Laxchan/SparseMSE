@@ -10,17 +10,15 @@
 #' @return A BIC rank matrix with the last column breaking ties with the previous ones.
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
 #' data(Korea)
 #' z=sortmodelsbic(Korea)
-#' z=bootstrapcal(z)
 #' z=jackknifecal(z)
 #' BICmatrix_prop= find_bic_rank_matrix(z)
-#' BICmatrix_break = BICrank_tiebreak(BICmatrix_prop_kosovo, 2)
-#'
+#' BICmatrix_break = BICrank_tiebreak(BICmatrix_prop, 2)
 #' @export
 BICrank_tiebreak <- function(BICmatrix_prop, k){
   BICmatrix_break <- BICmatrix_prop[,1:k]
@@ -43,16 +41,18 @@ BICrank_tiebreak <- function(BICmatrix_prop, k){
 #'
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
-#'data(Korea)
+#'@examples
+#' data(Korea)
 #' z=sortmodelsbic(Korea)
 #' z=bootstrapcal(z)
 #' z=jackknifecal(z)
 #' BICmatrix_prop= find_bic_rank_matrix(z)
-#' BICmatrix_break = BICrank_tiebreak(BICmatrix_prop_kosovo, 2)
+#' BICmatrix_break = BICrank_tiebreak(BICmatrix_prop, 2)
 #' ktopBCa(z,BICmatrix_break)
+#'
 #'@export
 ktopBCa = function(z,BICmatrix_break,alpha=c(0.025, 0.05, 0.1, 0.16,0.2, 0.5, 0.8, 0.84, 0.9, 0.95, 0.975), maxorder=Inf, BCaFD=FALSE) {
   # set up and calculate order of model scores
@@ -111,16 +111,16 @@ ktopBCa = function(z,BICmatrix_break,alpha=c(0.025, 0.05, 0.1, 0.16,0.2, 0.5, 0.
   }
   return(confvals=bcac)
 }
-#' Find BIC rank matrix up to some point for a given data set
+#' Find BIC rank matrix up to a specified number of bic ranks for a given data set
 #'
 #'
 #' @param zsortbic Output from applying \code{sortmodelsbic} to the data
 #' @param nbicranks The number of bic ranks to be propagated
 #'
-#'@return A bic rank matrix encoding how many steps the models considered need to get to the optimal one.
+#' @return A bic rank matrix encoding how many steps the models considered need to get to the optimal one.
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples

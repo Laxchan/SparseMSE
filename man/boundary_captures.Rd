@@ -7,7 +7,7 @@
 boundary_captures(kcap, nlists)
 }
 \arguments{
-\item{kcap}{An encoded capture history}
+\item{kcap}{An encoded capture history that corresponds to the row number of the capture history data set}
 
 \item{nlists}{The total number of lists}
 }
@@ -18,7 +18,15 @@ a vector giving the encoded versions of the descendants
 Call the resulting set the "boundary".  Supposing that the current set of captures is a hierarchical model, that property
 will be preserved if a capture in the boundary is added to it. The routine is called internally by \code{find_neighbour_hierarchies}.
 }
+\examples{
+modelstr = "[12,23]"
+nlists=4
+zhierroots = convert_from_hierarchy(modelstr, F)
+zhier = unique(ancestors(zhierroots, nlists))
+boundary_captures(zhier,nlists)
+
+}
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

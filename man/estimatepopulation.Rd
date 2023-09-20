@@ -48,6 +48,12 @@ This routine implements the bootstrapping and jacknife approach as detailed in S
  It calls the routine \code{\link{estimatepopulation.0}} and so is the preferred routine to be called if a user wishes to estimate the
   population and obtain BCa confidence intervals.
 }
+\examples{
+data(Korea)
+zdat=Korea
+estimatepopulation(zdat,nboot=10)
+
+}
 \references{
 Chan, L., Silverman, B. W., and Vincent, K. (2021).
  Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists.

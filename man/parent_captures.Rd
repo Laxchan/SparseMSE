@@ -7,7 +7,7 @@
 parent_captures(k, nlists = 10)
 }
 \arguments{
-\item{k}{An encoded capture history}
+\item{k}{An encoded capture history that corresponds to the row number of the capture history data set}
 
 \item{nlists}{The total number of lists}
 }
@@ -23,6 +23,6 @@ parent_captures(1,4)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

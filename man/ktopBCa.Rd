@@ -33,15 +33,17 @@ A list with the following components
 \description{
 Find BCa confidence intervals using ktop idea.
 }
-\references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
-Bootstrapping Multiple Systems Estimates to Account for Model Selection
-
+\examples{
 data(Korea)
 z=sortmodelsbic(Korea)
 z=bootstrapcal(z)
 z=jackknifecal(z)
 BICmatrix_prop= find_bic_rank_matrix(z)
-BICmatrix_break = BICrank_tiebreak(BICmatrix_prop_kosovo, 2)
+BICmatrix_break = BICrank_tiebreak(BICmatrix_prop, 2)
 ktopBCa(z,BICmatrix_break)
+
+}
+\references{
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

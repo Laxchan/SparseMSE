@@ -7,7 +7,7 @@
 child_captures(k, nlists)
 }
 \arguments{
-\item{k}{An encoded capture history}
+\item{k}{An encoded capture history that corresponds to the row number of the capture history data set}
 
 \item{nlists}{The total number of lists}
 }
@@ -15,7 +15,7 @@ child_captures(k, nlists)
 a vector giving the encoded versions of the children
 }
 \description{
-Given any encoded capture history and the number of lists, find the encoded capture histories which are obtained by adding one more list in turn
+Given any encoded capture history that corresponds to the row number of the capture history data set and the number of lists, find the encoded capture histories which are obtained by adding one more list in turn
 }
 \examples{
 child_captures(2,5)
@@ -23,6 +23,6 @@ child_captures(1,4)
 
 }
 \references{
-Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
 }

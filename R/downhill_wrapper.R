@@ -6,7 +6,7 @@
 #'
 #' @param xdata The data matrix
 #' @param maxorder Maximum order of models to be included
-#' @param checkid if TRUE, do the Fienburg-Renauldo test
+#' @param checkid if TRUE, do the Fienburg-Renaldo test
 #' @param verbose if TRUE, return the list of extra output from \code{downhill_fit}
 #' @param nboot The number of bootstrap replications
 #' @param alpha Bootstrap quantiles of interests.
@@ -20,7 +20,7 @@
 #'  }
 #'
 #'@references
-#' Silverman, B. W.,  Vincent, K., and Chan, L. (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
 #'
 #' @examples
