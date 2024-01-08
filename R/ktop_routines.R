@@ -10,8 +10,10 @@
 #' @return A BIC rank matrix with the last column breaking ties with the previous ones.
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(Korea)
@@ -41,8 +43,10 @@ BICrank_tiebreak <- function(BICmatrix_prop, k){
 #'
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #' data(Korea)
@@ -120,8 +124,10 @@ ktopBCa = function(z,BICmatrix_break,alpha=c(0.025, 0.05, 0.1, 0.16,0.2, 0.5, 0.
 #' @return A bic rank matrix encoding how many steps the models considered need to get to the optimal one.
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(Korea)

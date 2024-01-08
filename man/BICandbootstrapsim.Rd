@@ -68,7 +68,7 @@ This routine carries out the simulation study as detailed in Section 3.4 of Chan
 }
 \examples{
 zdat=UKdat_5
-BICandbootstrapsim(zdat,nsims=100, nboot=100, pthresh=0.02, iseed=1234)
+BICandbootstrapsim(zdat,nsims=1000, nboot=100, pthresh=0.02, iseed=1234, noninformativelist=T)
 }
 \references{
 Chan, L., Silverman, B. W., and Vincent, K. (2021).

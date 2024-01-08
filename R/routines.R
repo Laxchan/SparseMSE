@@ -1265,8 +1265,10 @@ removenoninformativelists<-function(zdat){
 #' @return A logical vector of length \code{nlists} giving presence or absence in the capture history
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' decode_capture(2,5)
@@ -1287,8 +1289,10 @@ decode_capture = function(k, nlists) {
 #' @return a vector giving the encoded versions of the descendants
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' descendants(2,5)
@@ -1318,8 +1322,10 @@ descendants = function(k,nlists, omitk = FALSE) {
 #' @return a vector giving the encoded versions of the ancestors
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' ancestors(2,10)
@@ -1347,8 +1353,10 @@ ancestors = function(k,nlists=10) {
 #' @return a vector giving the encoded versions of the parents
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' parent_captures(2,10)
@@ -1369,8 +1377,10 @@ parent_captures = function(k, nlists=10) {
 #' @return a vector giving the encoded versions of the children
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' child_captures(2,5)
@@ -1393,8 +1403,10 @@ child_captures = function(k, nlists) {
 #' in other words if \eqn{j} is an ancestor of \eqn{i}.
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' #Create master design matrix with 5 lists
@@ -1433,8 +1445,10 @@ make_master_design = function(nlists) {
 #'  \item{masterdesign}{The inclusion matrix as constructed by \code{\link{make_master_design}}}}
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #'#Korea data
@@ -1474,8 +1488,10 @@ ingest_data = function(xdat)  {
 #' @return The encoded capture histories that corresponds to the row number of the capture history data set
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #'modelstr = "[12,23]"
@@ -1514,7 +1530,7 @@ encode_capture = function(z) {
   k = 1+sum(z*2^{(0:(nlists-1))})
   return(k)
 }
-#' Find BCa confidence intervals for all possible ntop for given ktop and lweight
+#' Find BCa confidence intervals for all possible ntop
 #'
 #'@param z The output of \code{sortmodelsbic}, \code{bootstrapcal} and \code{jackknifecal}
 #'@param alpha Levels of confidence intervals to be constructed and assessed
@@ -1533,8 +1549,10 @@ encode_capture = function(z) {
 #'
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #'data(Korea)
@@ -1608,8 +1626,10 @@ ntopBCa = function(z,alpha=c(0.025, 0.05, 0.1, 0.16,0.2, 0.5, 0.8, 0.84, 0.9, 0.
 #' @return the estimated acceleration factor
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(Korea)
@@ -1737,8 +1757,10 @@ subsetmat <- function(z,
 #'@return the order of the model character string
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #'x="[1,2,3,4,5]"
@@ -1765,8 +1787,10 @@ modelorder = function(x) {
 #'
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(hiermodels)
@@ -1905,8 +1929,10 @@ sortmodelsbic <-
 #' @param checkid if T then \code{checkident.1} is called inside the routine
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(Korea)
@@ -1967,8 +1993,10 @@ fit_hier_model= function(xdatin, hiermod, bicRcap=T, checkid=F) {
 #'@return neighbour hierarchical models
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' modelstr = "[12,23]"
@@ -2006,9 +2034,11 @@ find_neighbour_hierarchies = function(modelstr, nlists=NA, keepmaineffects=T, ma
 #'
 #' @return A hierarchical representation of the vector of encoded captures.
 #'
-#' @references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#'@references
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' kcap=c(1,2,3,5,4)
@@ -2052,8 +2082,10 @@ convert_to_hierarchy = function(kcap, nlists) {
 #' @return a vector giving the encoded versions of the descendants
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #'modelstr = "[12,23]"
@@ -2093,8 +2125,10 @@ boundary_captures = function(kcap, nlists) {
 #' }}
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #'data(Korea)
@@ -2135,8 +2169,10 @@ find_unique_patterns = function(x) {
 #'
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(Korea)
@@ -2201,8 +2237,10 @@ checkident.2 = function(x, xcap, zmods) {
 #'
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #'@examples
 #'z=sortmodelsbic(Korea)
@@ -2274,8 +2312,10 @@ bootstrapcal <- function(z,
 #' }
 #'
 #'@references
-#' Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+#' Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 #' Bootstrapping Multiple Systems Estimates to Account for Model Selection
+#' \emph{Statistics and Computing}, \strong{34(44)},
+#' Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 #'
 #' @examples
 #' data(Korea)

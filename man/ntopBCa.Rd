@@ -2,7 +2,7 @@
 % Please edit documentation in R/routines.R
 \name{ntopBCa}
 \alias{ntopBCa}
-\title{Find BCa confidence intervals for all possible ntop for given ktop and lweight}
+\title{Find BCa confidence intervals for all possible ntop}
 \usage{
 ntopBCa(
   z,
@@ -28,7 +28,7 @@ A list with the following components
  }
 }
 \description{
-Find BCa confidence intervals for all possible ntop for given ktop and lweight
+Find BCa confidence intervals for all possible ntop
 }
 \examples{
 data(Korea)
@@ -39,6 +39,8 @@ ntopBCa(z)
 
 }
 \references{
-Silverman, B. W., Chan, L. and  Vincent, K., (2022).
+Silverman, B. W., Chan, L. and  Vincent, K., (2024).
 Bootstrapping Multiple Systems Estimates to Account for Model Selection
+\emph{Statistics and Computing}, \strong{34(44)},
+Available from \url{https://doi.org/10.1007/s11222-023-10346-9}.
 }
