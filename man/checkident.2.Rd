@@ -25,7 +25,7 @@ and hence economises the task of finding which model/data combinations satisfy t
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea)
+z=assemble_bic(Korea)
 z=bootstrapcal(z)
 n2=dim(z$xdata)[2]
 checkident.2(z$bootreplications, z$xdata[,-n2], dimnames(z$res)[[1]])

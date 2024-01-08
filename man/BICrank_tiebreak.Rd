@@ -21,7 +21,7 @@ ties with each previous column.
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea)
+z=assemble_bic(Korea)
 z=jackknifecal(z)
 BICmatrix_prop= find_bic_rank_matrix(z)
 BICmatrix_break = BICrank_tiebreak(BICmatrix_prop, 2)

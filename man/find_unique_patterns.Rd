@@ -21,7 +21,7 @@ together with a vector of pointers back to that matrix.
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea)
+z=assemble_bic(Korea)
 z=bootstrapcal(z)
 find_unique_patterns(z$bootreplications)
 

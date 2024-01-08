@@ -7,7 +7,7 @@
 jackknifecal(z, checkexist = T)
 }
 \arguments{
-\item{z}{Results from \code{sortmodelsbic} or \code{subsetmat}.}
+\item{z}{Results from \code{assemble_bic} or \code{subsetmat}.}
 
 \item{checkexist}{If \code{checkexist=TRUE}, check for existence in cases where the jackknife introduces an additional zero, else it does
 not check for existence.  Note that in the current version it is assume that models for which the fit doesn't exist for the original data
@@ -22,12 +22,12 @@ A list with the following components
 }
 }
 \description{
-This routine takes the output from \code{subsetmat} or from \code{sortmodelsbic} and returns the jackknife
+This routine takes the output from \code{subsetmat} or from \code{assemble_bic} and returns the jackknife
 abundance matrix and jackknife BIC matrix.
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea)
+z=assemble_bic(Korea)
 jackknifecal(z,checkexist=T)
 
 }

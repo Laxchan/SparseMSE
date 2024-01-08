@@ -13,7 +13,7 @@ ktopBCa(
 )
 }
 \arguments{
-\item{z}{The output of \code{sortmodelsbic}, \code{bootstrapcal} and \code{jackknifecal}}
+\item{z}{The output of \code{assemble_bic}, \code{bootstrapcal} and \code{jackknifecal}}
 
 \item{BICmatrix_break}{output from \code{BICrank_tiebreak}}
 
@@ -35,7 +35,7 @@ Find BCa confidence intervals using ktop idea.
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea)
+z=assemble_bic(Korea)
 z=bootstrapcal(z)
 z=jackknifecal(z)
 BICmatrix_prop= find_bic_rank_matrix(z)

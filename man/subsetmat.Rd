@@ -7,7 +7,7 @@
 subsetmat(z, ntopmodels = Inf, maxorder = Inf)
 }
 \arguments{
-\item{z}{output from \code{sortmodelsbic} or a list output from applying \code{sortmodelsbic}, \code{jackknifecal} and \code{bootstrapcal}.}
+\item{z}{output from \code{assemble_bic} or a list output from applying \code{assemble_bic}, \code{jackknifecal} and \code{bootstrapcal}.}
 
 \item{ntopmodels}{number of top models.  If (taking into account any change in the maximum order of models) there are fewer than
 \code{ntopmodels} in the data supplied, then it will be reduced to that value.  If it is not specified then there will be no
@@ -27,7 +27,7 @@ A list with the following components
   \item{countsobserved}{Capture counts in the same order as the columns of \code{jackabund} and \code{jackbic}}
   \item{bootabund}{Bootstrap abundance matrix, subsetted by maxorder and ntopmodels}
   \item{bootbic}{Bootstrap BIC matrix, subsetted by maxorder and ntopmodels}
-  } If the input only has the output from \code{sortmodelsbic}, the last five items of the list
+  } If the input only has the output from \code{assemble_bic}, the last five items of the list
   do not appear.
 }
 \description{
@@ -35,7 +35,7 @@ The idea of this routine is to reduce either or both of \code{ntopmodels} and \c
 any actual model fits.
 }
 \details{
-The routine subsets the results matrix as part of the output given by \code{sortmodelsbic}
+The routine subsets the results matrix as part of the output given by \code{assemble_bic}
 based on specified parameters \code{ntopmodels} and \code{maxorder}. It returns the subsetted matrix,
 original data matrix with capture histories and counts and the new actual value of \code{maxorder} (reducing it
 from the input value if necessary or if the default input value of \eqn{\infty} is used).
@@ -43,11 +43,11 @@ from the input value if necessary or if the default input value of \eqn{\infty} 
 \examples{
 data(UKdat_5)
 #Example 1
-z=sortmodelsbic(UKdat_5)
+z=assemble_bic(UKdat_5)
 subsetmat(z,ntopmodels=100,maxorder=2)
 subsetmat(z)
 #Example 2
-z=sortmodelsbic(UKdat_5)
+z=assemble_bic(UKdat_5)
 z=jackknifecal(z)
 z=bootstrapcal(z)
 subsetmat(z,ntopmodels=100,maxorder=2)

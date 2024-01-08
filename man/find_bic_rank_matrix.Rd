@@ -7,7 +7,7 @@
 find_bic_rank_matrix(zsortbic, nbicranks = 5)
 }
 \arguments{
-\item{zsortbic}{Output from applying \code{sortmodelsbic} to the data}
+\item{zsortbic}{Output from applying \code{assemble_bic} to the data}
 
 \item{nbicranks}{The number of bic ranks to be propagated}
 }
@@ -19,7 +19,7 @@ Find BIC rank matrix up to a specified number of bic ranks for a given data set
 }
 \examples{
 data(Korea)
-zsortbic=sortmodelsbic(Korea, checkexist=T)
+zsortbic=assemble_bic(Korea, checkexist=T)
 find_bic_rank_matrix(zsortbic, nbicranks=5)
 }
 \references{

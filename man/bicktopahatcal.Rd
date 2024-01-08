@@ -7,7 +7,7 @@
 bicktopahatcal(z, modelorder)
 }
 \arguments{
-\item{z}{The output of \code{sortmodelsbic}, \code{bootstrapcal} and \code{jackknifecal}}
+\item{z}{The output of \code{assemble_bic}, \code{bootstrapcal} and \code{jackknifecal}}
 
 \item{modelorder}{the order of the considered models}
 }
@@ -19,7 +19,7 @@ Returns acceleration factors for each value of ntop for given modelorder
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea, checkexist=T)
+z=assemble_bic(Korea, checkexist=T)
 z=jackknifecal(z, checkexist=T)
 nmods= dim(z$jackabund)[1]
 modscores = (1:nmods)

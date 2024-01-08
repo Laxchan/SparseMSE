@@ -14,7 +14,7 @@ bootstrapcal(
 )
 }
 \arguments{
-\item{z}{Results from \code{sortmodelsbic} or \code{subsetmat}}
+\item{z}{Results from \code{assemble_bic} or \code{subsetmat}}
 
 \item{nboot}{The number of bootstrap replications.}
 
@@ -39,11 +39,11 @@ The original input list \code{z} with the additional components
 If there are already components with these names they will be overwritten.
 }
 \description{
-This routine takes the output from \code{sortmodelsbic} or \code{subsetmat} and returns bootstrap
+This routine takes the output from \code{assemble_bic} or \code{subsetmat} and returns bootstrap
 abundance matrix and BIC matrix. This version makes use of the \code{checkident.2}.
 }
 \examples{
-z=sortmodelsbic(Korea)
+z=assemble_bic(Korea)
 bootstrapcal(z, checkexist=T, saveinterval=50, savefile="Koreabootresults.Rdata")
 
 }

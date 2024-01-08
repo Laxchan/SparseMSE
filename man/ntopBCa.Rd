@@ -12,7 +12,7 @@ ntopBCa(
 )
 }
 \arguments{
-\item{z}{The output of \code{sortmodelsbic}, \code{bootstrapcal} and \code{jackknifecal}}
+\item{z}{The output of \code{assemble_bic}, \code{bootstrapcal} and \code{jackknifecal}}
 
 \item{alpha}{Levels of confidence intervals to be constructed and assessed}
 
@@ -32,7 +32,7 @@ Find BCa confidence intervals for all possible ntop
 }
 \examples{
 data(Korea)
-z=sortmodelsbic(Korea, checkexist=T)
+z=assemble_bic(Korea, checkexist=T)
 z=bootstrapcal(z, checkexist=T)
 z=jackknifecal(z,checkexist=T)
 ntopBCa(z)
