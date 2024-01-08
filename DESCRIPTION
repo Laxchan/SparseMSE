@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Package: SparseMSE
 Title: 'Multiple Systems Estimation for Sparse Capture Data'
 Version: 3.0.1
@@ -19,3 +20,26 @@ LazyData: true
 RoxygenNote: 7.2.3
 Suggests: knitr, rmarkdown
 Imports: lpSolve, Rcapture
+=======
+Package: SparseMSE
+Title: 'Multiple Systems Estimation for Sparse Capture Data'
+Version: 3.0.1
+Authors@R: c(
+  person("Lax", "Chan", email = "laxchan77@gmail.com", role = c("aut","cre")),
+  person("Bernard", "Silverman", email = "mail@bernardsilverman.co.uk", role = c("aut")),
+  person("Kyle", "Vincent", email = "kyle.shane.vincent@gmail.com", role= c("aut")))
+Author: Lax Chan [aut, cre], 
+  Bernard Silverman [aut], 
+  Kyle Vincent [aut]
+Maintainer: Lax Chan <laxchan77@gmail.com>
+Description: Implements the routines and algorithms developed and analysed in "Multiple Systems Estimation for Sparse Capture Data: Inferential Challenges when there are Non-Overlapping Lists" Chan, L, Silverman, B. W., Vincent, K (2019) <https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748> and in "Bootstrapping multiple systems estimates to account for model selection" Silverman, B. W., Chan, L,  Vincent, K (2023)<https://doi.org/10.1007/s11222-023-10346-9>. This package explicitly handles situations where there are pairs of lists which have no observed individuals in common.  It deals correctly with parameters whose estimated values can be considered as being negative infinity.  It also addresses other possible issues of non-existence and non-identifiability of maximum likelihood estimates.
+URL: https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1708748
+     https://doi.org/10.1007/s11222-023-10346-9
+Depends: R (>= 4.2.0)
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Suggests: knitr, rmarkdown
+Imports: lpSolve, Rcapture
+>>>>>>> 60449ffe702bd1b8cd8b68685c88791d5c872b98
